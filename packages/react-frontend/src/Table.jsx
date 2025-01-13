@@ -1,3 +1,4 @@
+//build the table header html
 function TableHeader() {
     return (
       <thead>
@@ -8,10 +9,13 @@ function TableHeader() {
         </tr>
       </thead>
     );
-  }
-  function TableBody(props) {
+}
+
+//build table body
+function TableBody(props) {
+    //map each character row to name/job, index as key
     const rows = props.characterData.map((row, index) => {
-      return (
+        return (
         <tr key={index}>
             <td>{row.name}</td>
             <td>{row.job}</td>
@@ -21,17 +25,17 @@ function TableHeader() {
                 </button>
             </td>
         </tr>
-      );
-     }
-    );
+        );
+        });
     return (
         <tbody>
           {rows}
          </tbody>
      );
-  }
-  
-  function Table(props) {
+}
+
+//functional table component
+function Table(props) {
       return (
         <table>
           <TableHeader />
@@ -40,5 +44,6 @@ function TableHeader() {
           />
         </table>
       );
-  }
-  export default Table;
+}
+
+export default Table;
