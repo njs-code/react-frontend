@@ -1,10 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import React from 'react';
+import ReactDOMClient from 'react-dom/client';
+import './main.css';
+import MyApp from './MyApp';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+//create the container
+const container = document.getElementById("root");
+
+//create a root
+const root = ReactDOMClient.createRoot(container);
+
+//render component to the root of index.html
+root.render(<MyApp />);
