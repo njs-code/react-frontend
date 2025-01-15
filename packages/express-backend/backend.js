@@ -42,9 +42,26 @@ app.get('/', (req,res) => {
     res.send("Hello, World!");
 });
 
+
+const findUserByName = (name)=> {
+  //return matching users
+  return users["users_list"].filter(
+    (user) => user["name"] === name
+  );
+};
+
 //return the users JSON
 app.get("/users", (req,res)=>{
-    res.send(users);
+    const name = req.query.name;
+    //if name then filter for matching users
+    if (name != undefined){
+      let result = findUserByName(name);
+      result = {users_list: result};
+      res.send(result);
+    //otherwise send all users
+    } else{
+      res.send(users);
+    }
 });
 
 //
